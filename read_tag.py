@@ -20,13 +20,13 @@ driver.implicitly_wait(10)  # Adjust time as needed
 style_element = driver.find_element(By.CSS_SELECTOR, 'script[type="text/mfe-initial-data"]')
 style_content = style_element.get_attribute('innerHTML')
 
-# Print or process the data
-# print(style_content)
+
 try:
     data = json.loads(style_content)
     # Pretty-print the JSON data
     pretty_json = json.dumps(data, indent=4, ensure_ascii=False)
     print(pretty_json)
+
 except json.JSONDecodeError:
     print("Failed to decode JSON. The script content may not be valid JSON.")
 
